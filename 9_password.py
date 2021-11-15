@@ -26,11 +26,12 @@ for password in list_password:
 
     cookies = {}
     if cookie_value is not None:
-        cookies = {'auth_cookie': cookie_value}
+        cookies.update({'auth_cookie': cookie_value})
         response2 = requests.post(cookie_url, cookies=cookies)
         if response2.text == 'You are authorized':
             print(response2.text)
             print(f"Your login: {user_login}\nYour password: {password}")
             break
 else:
-    print("The password is not in the list")
+     print(response2.text)
+     print("The password is not in the list")
